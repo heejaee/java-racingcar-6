@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Cars {
     private static final List<Car> carList = new ArrayList<>();
@@ -60,5 +61,16 @@ public class Cars {
             max = car.findMaxPosition(max);
         }
         return max;
+    }
+
+    public Car findMaxCar() {
+        return carList.stream().max(Car::compareTo).orElseThrow(() -> new IllegalArgumentException("차량 리스트가 비었습니다."));
+    }
+
+    public String findWinner(Car maxCar) {
+        return carList.stream()
+                .filter(maxCar::isWinner)
+                .map(Car::getName)
+                .collect(Collectors.joining(","));
     }
 }

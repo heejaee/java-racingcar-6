@@ -9,7 +9,8 @@ public class WinnerDetector {
     private final Cars cars = Cars.create();
 
     public void findNum() {
-        winnerRepo.saveNum(cars.findMaxPosition());
+        print.winner(cars.findWinner(cars.findMaxCar()));
+        //winnerRepo.saveNum(cars.findMaxPosition2());
     }
 
     public void findName() {

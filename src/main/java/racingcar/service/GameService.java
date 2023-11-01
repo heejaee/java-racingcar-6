@@ -6,9 +6,9 @@ public class GameService {
 
     public void run() {
         raceManager.racing();
-        
+
         winnerDetector.findNum();
-        winnerDetector.findName();
-        winnerDetector.displayResult();
+//        winnerDetector.findName();
+//        winnerDetector.displayResult();
     }
 }

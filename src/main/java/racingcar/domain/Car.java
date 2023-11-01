@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-public class Car {
+public class Car implements Comparable<Car> {
     private final Name name;
     private final Position position;
 
@@ -27,5 +27,14 @@ public class Car {
 
     public int findMaxPosition(int max) {
         return position.findLargerNum(max);
+    }
+
+    @Override
+    public int compareTo(Car otherCar) {
+        return position.getNum() - otherCar.getPosition();
+    }
+
+    public boolean isWinner(Car maxCar) {
+        return position == maxCar.position;
     }
 }
